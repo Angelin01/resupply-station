@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "${modId}",
+  "version": "${version}",
+  "name": "${modName}",
+  "description": "${description}",
+  "authors": [
+    "${authors}"
+  ],
+  "icon": "${iconLogo}",
+  "contact": {
+    "homepage": "${homepage}",
+    "issues": "${issues}"
+  },
+  "license": "${license}",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.angelin01.resupplystation.fabric.ResupplyStationFabric"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=${fabricLoaderVersion}",
+    "minecraft": "${minecraftVersion}",
+    "java": ">=${javaVersion}",
+    "fabric-api": "*"
+  }
+}
