@@ -1,12 +1,29 @@
 package com.angelin01.resupplystation.block.entity;
 
 import com.angelin01.resupplystation.CommonRegistry;
+import com.angelin01.resupplystation.ui.ResupplyStationMenu;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
-public class ResupplyStationBlockEntity extends BlockEntity {
+public class ResupplyStationBlockEntity extends BlockEntity implements MenuProvider {
 	public ResupplyStationBlockEntity(BlockPos blockPos, BlockState state) {
 		super(CommonRegistry.RESUPPLY_STATION.get(), blockPos, state);
+	}
+
+	@Override
+	public Component getDisplayName() {
+		return Component.translatable("block.resupplystation.resupply_station");
+	}
+
+	@Override
+	public @Nullable AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+		return new ResupplyStationMenu(id, inventory);
 	}
 }
